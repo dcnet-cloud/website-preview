@@ -1841,3 +1841,6 @@ a.tile--hero:hover .srv__mock { transform: perspective(1200px) rotateY(0) rotate
 /* SLA: long text cells wrap instead of scrolling. */
 .table-wrap--text th, .table-wrap--text td { white-space: normal; }
 .table-wrap--text td:first-child { width: 34%; }
+
+/* Login button has no href until the portal URL is final (PO 2026-10-22) */
+.btn-login:not([href]), .mob__login:not([href]) { cursor: default; }
