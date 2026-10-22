@@ -1,0 +1,99 @@
+/* DCNET Cloud — generated from tokens.json by tools/build-tokens.py. Do not edit. */
+:root, [data-theme="light"] {
+  --purple: #42256C;
+  --royal: #3A5BD6;
+  --sky: #66BBFF;
+  --yellow: #FAD432;
+  --amber: #D99928;
+  --night: #0F1126;
+  --paper: #F5F7FA;
+  --bg: var(--paper);
+  --surface: #FFFFFF;
+  --ink: var(--night);
+  --ink-muted: #5E6478;
+  --line: #E3E6EE;
+  --line-strong: #80869C;
+  --action: var(--royal);
+  --on-action: #FFFFFF;
+  --accent: var(--yellow);
+  --on-accent: var(--night);
+  --success: #1E7A4C;
+  --warning: #9A5B00;
+  --danger: #C62828;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  --purple: #42256C;
+  --royal: #3A5BD6;
+  --sky: #66BBFF;
+  --yellow: #FAD432;
+  --amber: #D99928;
+  --night: #0F1126;
+  --paper: #F5F7FA;
+  --bg: var(--night);
+  --surface: #181B3A;
+  --ink: var(--paper);
+  --ink-muted: #A3A9BF;
+  --line: #2A2E4D;
+  --line-strong: #6E7499;
+  --action: var(--sky);
+  --on-action: var(--night);
+  --accent: var(--yellow);
+  --on-accent: var(--night);
+  --success: #4CC38A;
+  --warning: #F0B44C;
+  --danger: #FF8A80;
+  color-scheme: dark;
+  }
+}
+[data-theme="dark"] {
+  --purple: #42256C;
+  --royal: #3A5BD6;
+  --sky: #66BBFF;
+  --yellow: #FAD432;
+  --amber: #D99928;
+  --night: #0F1126;
+  --paper: #F5F7FA;
+  --bg: var(--night);
+  --surface: #181B3A;
+  --ink: var(--paper);
+  --ink-muted: #A3A9BF;
+  --line: #2A2E4D;
+  --line-strong: #6E7499;
+  --action: var(--sky);
+  --on-action: var(--night);
+  --accent: var(--yellow);
+  --on-accent: var(--night);
+  --success: #4CC38A;
+  --warning: #F0B44C;
+  --danger: #FF8A80;
+  color-scheme: dark;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --font-brand: "Montserrat", system-ui, sans-serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --font-mono: "Montserrat", system-ui, sans-serif;
+}
+.t-display { font-family: var(--font-sans); font-size: 48px; line-height: 56px; font-weight: 700; letter-spacing: -0.5px; }
+.t-h1 { font-family: var(--font-sans); font-size: 36px; line-height: 44px; font-weight: 700; }
+.t-h2 { font-family: var(--font-sans); font-size: 28px; line-height: 36px; font-weight: 600; }
+.t-h3 { font-family: var(--font-sans); font-size: 20px; line-height: 28px; font-weight: 600; }
+.t-body { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.t-small { font-family: var(--font-sans); font-size: 13px; line-height: 20px; font-weight: 400; }
+.t-label { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.4px; }
+.t-price { font-family: var(--font-mono); font-size: 24px; line-height: 32px; font-weight: 600; }
+.t-spec { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-weight: 500; }
+.t-wordmark { font-family: var(--font-brand); font-size: 30px; line-height: 34px; font-weight: 800; letter-spacing: 0.5px; }

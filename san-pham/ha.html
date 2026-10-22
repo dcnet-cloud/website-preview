@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DCNET Cloud - Sẵn sàng cao (HA)</title>
+  <meta name="description" content="Sẵn sàng cao (HA) của DCNET Cloud : nhóm máy chủ anti-affinity, theo dõi nhịp host, tự khởi động lại máy chủ trên host khác, live migration khi bảo trì. Sắp ra mắt.">
+  <link rel="icon" href="../brand/assets/favicon/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../brand/assets/favicon/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../brand/assets/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&subset=vietnamese&display=swap">
+  <link rel="stylesheet" href="../brand/tokens.css">
+  <link rel="stylesheet" href="../brand/components/components.css">
+  <link rel="stylesheet" href="../site.css?v=36d9cd8f">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <div class="topbar"><div class="topbar__in"><span><b>Dùng thử DCNET Cloud 30 ngày.</b> Đội ngũ hỗ trợ 24/7.</span><span class="topbar__right"><a href="tel:19000382"><i data-lucide="phone"></i>1900 0382</a></span></div></div>
+  <header class="dc-header site-header">
+    <a class="dc-header__logo" href="../index.html" aria-label="DCNET Cloud, trang chủ">
+      <img class="dc-logo--light" src="../brand/assets/logos/dcnet-cloud-inline-light.svg" alt="DCNET Cloud">
+      <img class="dc-logo--dark" src="../brand/assets/logos/dcnet-cloud-inline-dark.svg" alt="" aria-hidden="true">
+    </a>
+    <nav class="dc-header__nav nav" aria-label="Điều hướng chính"><ul class="nav__list"><li class="nav__item"><button class="nav__trigger" type="button" aria-expanded="false" aria-controls="m-sp" aria-current="page">Sản phẩm<i data-lucide="chevron-down"></i></button><div class="mega" id="m-sp"><div class="mega__rail" role="tablist" aria-label="Sản phẩm"><button class="mega__tab" type="button" role="tab" aria-selected="true" aria-controls="m-sp-0">Tất cả sản phẩm<i data-lucide="chevron-right"></i></button><button class="mega__tab" type="button" role="tab" aria-selected="false" aria-controls="m-sp-1">Máy chủ và lưu trữ<i data-lucide="chevron-right"></i></button><button class="mega__tab" type="button" role="tab" aria-selected="false" aria-controls="m-sp-2">Mạng và mở rộng<i data-lucide="chevron-right"></i></button><button class="mega__tab" type="button" role="tab" aria-selected="false" aria-controls="m-sp-3">Bảo vệ<i data-lucide="chevron-right"></i></button></div><div class="mega__main"><div class="mega__pane is-on" id="m-sp-0" role="tabpanel"><p class="mega__h">Tất cả sản phẩm</p><div class="mega__grid"><a class="mlink" href="../san-pham/cloud-server.html"><i data-lucide="server"></i><span><b>Cloud Server</b><small>Máy chủ ảo ổ SSD NVMe, khởi tạo trong vài phút</small></span></a><a class="mlink" href="../san-pham/cloud-s3.html"><i data-lucide="database"></i><span><b>Cloud S3</b><small>Lưu trữ đối tượng tương thích S3</small></span></a><a class="mlink" href="../san-pham/load-balancer.html"><i data-lucide="split"></i><span><b>Load Balancer</b><small>Chia lưu lượng cho nhiều máy chủ</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/auto-scaling.html"><i data-lucide="chart-no-axes-combined"></i><span><b>Auto Scaling</b><small>Tự tăng giảm máy chủ theo tải</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/ha.html"><i data-lucide="heart-pulse"></i><span><b>Sẵn sàng cao (HA)</b><small>Máy chủ chạy tiếp khi một host lỗi</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/snapshot.html"><i data-lucide="camera"></i><span><b>Snapshot</b><small>Chụp trạng thái máy chủ, quay về khi cần</small></span></a><a class="mlink" href="../san-pham/cloud-backup.html"><i data-lucide="archive-restore"></i><span><b>Cloud Backup</b><small>Sao lưu ổ dữ liệu, khôi phục khi cần</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/bao-mat.html"><i data-lucide="shield-check"></i><span><b>Bảo mật hạ tầng</b><small>Tường lửa, WAF, chống DDoS</small></span></a></div></div><div class="mega__pane" id="m-sp-1" role="tabpanel"><p class="mega__h">Máy chủ và lưu trữ</p><div class="mega__grid"><a class="mlink" href="../san-pham/cloud-server.html"><i data-lucide="server"></i><span><b>Cloud Server</b><small>Máy chủ ảo ổ SSD NVMe, khởi tạo trong vài phút</small></span></a><a class="mlink" href="../san-pham/cloud-s3.html"><i data-lucide="database"></i><span><b>Cloud S3</b><small>Lưu trữ đối tượng tương thích S3</small></span></a></div></div><div class="mega__pane" id="m-sp-2" role="tabpanel"><p class="mega__h">Mạng và mở rộng</p><div class="mega__grid"><a class="mlink" href="../san-pham/load-balancer.html"><i data-lucide="split"></i><span><b>Load Balancer</b><small>Chia lưu lượng cho nhiều máy chủ</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/auto-scaling.html"><i data-lucide="chart-no-axes-combined"></i><span><b>Auto Scaling</b><small>Tự tăng giảm máy chủ theo tải</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/ha.html"><i data-lucide="heart-pulse"></i><span><b>Sẵn sàng cao (HA)</b><small>Máy chủ chạy tiếp khi một host lỗi</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a></div></div><div class="mega__pane" id="m-sp-3" role="tabpanel"><p class="mega__h">Bảo vệ</p><div class="mega__grid"><a class="mlink" href="../san-pham/snapshot.html"><i data-lucide="camera"></i><span><b>Snapshot</b><small>Chụp trạng thái máy chủ, quay về khi cần</small></span></a><a class="mlink" href="../san-pham/cloud-backup.html"><i data-lucide="archive-restore"></i><span><b>Cloud Backup</b><small>Sao lưu ổ dữ liệu, khôi phục khi cần</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/bao-mat.html"><i data-lucide="shield-check"></i><span><b>Bảo mật hạ tầng</b><small>Tường lửa, WAF, chống DDoS</small></span></a></div></div><div class="mega__foot"><a class="mega__ghost" href="tel:19000382">Cần tư vấn? Gọi 1900 0382</a><a class="mega__solid" href="../bang-gia.html#tu-cau-hinh">Tự cấu hình máy chủ<i data-lucide="arrow-right"></i></a></div></div></div></li><li class="nav__item"><button class="nav__trigger" type="button" aria-expanded="false" aria-controls="m-gia">Bảng giá<i data-lucide="chevron-down"></i></button><div class="mega" id="m-gia"><div class="mega__rail" role="tablist" aria-label="Bảng giá"><button class="mega__tab" type="button" role="tab" aria-selected="true" aria-controls="m-gia-0">Cloud Server<i data-lucide="chevron-right"></i></button></div><div class="mega__main"><div class="mega__pane is-on" id="m-gia-0" role="tabpanel"><p class="mega__h">Cloud Server</p><div class="mega__grid"><a class="mlink" href="../bang-gia.html#goi"><i data-lucide="package"></i><span><b>Gói thông dụng</b><small>6 gói đa dụng, giá theo tháng</small></span></a><a class="mlink" href="../bang-gia.html#tu-cau-hinh"><i data-lucide="sliders-horizontal"></i><span><b>Tự cấu hình</b><small>Chọn vCPU, RAM, ổ đĩa, xem giá ngay</small></span></a><a class="mlink" href="../tinh-cuoc-theo-gio.html"><i data-lucide="wallet"></i><span><b>Tính cước theo giờ</b><small>Đang phát triển: ví trả trước, trả theo giờ</small></span></a></div></div><div class="mega__foot"><a class="mega__link" href="../bang-gia.html">Xem toàn bộ bảng giá<i data-lucide="arrow-right"></i></a></div></div></div></li><li class="nav__item"><button class="nav__trigger" type="button" aria-expanded="false" aria-controls="m-cty">Về DCNET<i data-lucide="chevron-down"></i></button><div class="mega" id="m-cty"><div class="mega__rail" role="tablist" aria-label="Về DCNET"><button class="mega__tab" type="button" role="tab" aria-selected="true" aria-controls="m-cty-0">Công ty<i data-lucide="chevron-right"></i></button><button class="mega__tab" type="button" role="tab" aria-selected="false" aria-controls="m-cty-1">Pháp lý<i data-lucide="chevron-right"></i></button></div><div class="mega__main"><div class="mega__pane is-on" id="m-cty-0" role="tabpanel"><p class="mega__h">Công ty</p><div class="mega__grid"><a class="mlink" href="../tai-sao-dcnet.html"><i data-lucide="badge-check"></i><span><b>Tại sao chọn DCNET</b><small>Lợi thế của một nhà mạng</small></span></a><a class="mlink" href="../ve-chung-toi.html"><i data-lucide="building-2"></i><span><b>Về chúng tôi</b><small>DCNET Telecom và DCNET Cloud</small></span></a><a class="mlink" href="../lo-trinh.html"><i data-lucide="map"></i><span><b>Lộ trình sản phẩm</b><small>Đang có, sắp ra mắt, 2027</small></span></a><a class="mlink" href="../lien-he.html"><i data-lucide="headset"></i><span><b>Liên hệ</b><small>Gọi, gửi yêu cầu, gặp đội ngũ tư vấn</small></span></a></div></div><div class="mega__pane" id="m-cty-1" role="tabpanel"><p class="mega__h">Pháp lý</p><div class="mega__grid"><a class="mlink" href="../phap-ly/sla.html"><i data-lucide="shield"></i><span><b>Cam kết SLA</b><small>Thời gian hoạt động 99,5%/tháng</small></span></a><a class="mlink" href="../phap-ly/dieu-khoan.html"><i data-lucide="file-text"></i><span><b>Điều khoản sử dụng</b><small>Điều kiện dùng dịch vụ DCNET Cloud</small></span></a><a class="mlink" href="../phap-ly/bao-mat.html"><i data-lucide="lock"></i><span><b>Bảo vệ dữ liệu cá nhân</b><small>Cách DCNET xử lý dữ liệu của bạn</small></span></a></div></div><div class="mega__foot"><a class="mega__link" href="../lien-he.html">Liên hệ với DCNET<i data-lucide="arrow-right"></i></a></div></div></div></li><li class="nav__item"><a class="nav__link" href="../lien-he.html">Liên hệ</a></li></ul></nav>
+    <div class="dc-header__actions">
+      <a class="btn-login" href="https://console.dcnetcloud.com/"><i data-lucide="log-in"></i>Đăng nhập</a>
+      <a class="btn-try" href="../index.html#dang-ky">Dùng thử<span class="hide-sm"> 30 ngày</span><i data-lucide="arrow-right"></i></a>
+      <details class="dc-header__menu">
+        <summary aria-label="Mở menu"><i data-lucide="menu"></i></summary>
+        <div class="dc-header__panel"><details class="mob__group" open><summary>Sản phẩm<i data-lucide="chevron-down"></i></summary><div class="mob__body"><p class="mob__title">Máy chủ và lưu trữ</p><a class="mob__link" href="../san-pham/cloud-server.html"><i data-lucide="server"></i><span>Cloud Server</span></a><a class="mob__link" href="../san-pham/cloud-s3.html"><i data-lucide="database"></i><span>Cloud S3</span></a><p class="mob__title">Mạng và mở rộng</p><a class="mob__link" href="../san-pham/load-balancer.html"><i data-lucide="split"></i><span>Load Balancer<span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mob__link" href="../san-pham/auto-scaling.html"><i data-lucide="chart-no-axes-combined"></i><span>Auto Scaling<span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mob__link" href="../san-pham/ha.html"><i data-lucide="heart-pulse"></i><span>Sẵn sàng cao (HA)<span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><p class="mob__title">Bảo vệ</p><a class="mob__link" href="../san-pham/snapshot.html"><i data-lucide="camera"></i><span>Snapshot</span></a><a class="mob__link" href="../san-pham/cloud-backup.html"><i data-lucide="archive-restore"></i><span>Cloud Backup<span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mob__link" href="../san-pham/bao-mat.html"><i data-lucide="shield-check"></i><span>Bảo mật hạ tầng</span></a><a class="mob__foot" href="tel:19000382">Cần tư vấn? Gọi 1900 0382</a><a class="mob__foot" href="../bang-gia.html#tu-cau-hinh">Tự cấu hình máy chủ</a></div></details><details class="mob__group"><summary>Bảng giá<i data-lucide="chevron-down"></i></summary><div class="mob__body"><a class="mob__link" href="../bang-gia.html#goi"><i data-lucide="package"></i><span>Gói thông dụng</span></a><a class="mob__link" href="../bang-gia.html#tu-cau-hinh"><i data-lucide="sliders-horizontal"></i><span>Tự cấu hình</span></a><a class="mob__link" href="../tinh-cuoc-theo-gio.html"><i data-lucide="wallet"></i><span>Tính cước theo giờ</span></a><a class="mob__foot" href="../bang-gia.html">Xem toàn bộ bảng giá</a></div></details><details class="mob__group"><summary>Về DCNET<i data-lucide="chevron-down"></i></summary><div class="mob__body"><p class="mob__title">Công ty</p><a class="mob__link" href="../tai-sao-dcnet.html"><i data-lucide="badge-check"></i><span>Tại sao chọn DCNET</span></a><a class="mob__link" href="../ve-chung-toi.html"><i data-lucide="building-2"></i><span>Về chúng tôi</span></a><a class="mob__link" href="../lo-trinh.html"><i data-lucide="map"></i><span>Lộ trình sản phẩm</span></a><a class="mob__link" href="../lien-he.html"><i data-lucide="headset"></i><span>Liên hệ</span></a><p class="mob__title">Pháp lý</p><a class="mob__link" href="../phap-ly/sla.html"><i data-lucide="shield"></i><span>Cam kết SLA</span></a><a class="mob__link" href="../phap-ly/dieu-khoan.html"><i data-lucide="file-text"></i><span>Điều khoản sử dụng</span></a><a class="mob__link" href="../phap-ly/bao-mat.html"><i data-lucide="lock"></i><span>Bảo vệ dữ liệu cá nhân</span></a><a class="mob__foot" href="../lien-he.html">Liên hệ với DCNET</a></div></details><a class="mob__top" href="../lien-he.html">Liên hệ</a><a class="mob__login" href="https://console.dcnetcloud.com/">Đăng nhập</a></div>
+      </details>
+    </div>
+  </header>
+  <main>
+    <section class="hero phero">
+      <div class="wrap phero__grid">
+        <div>
+          <p class="eyebrow-pill"><i data-lucide="shield-check"></i>Sẵn sàng cao (HA) <span class="dc-tag dc-tag--soon">Sắp ra mắt</span></p>
+          <h1 data-reveal>Host lỗi, <em>máy chủ chạy lại trên host khác.</em></h1>
+          <p class="lead" data-reveal style="--i:1">Máy chủ của bạn được rải trên nhiều host vật lý. Nền tảng theo dõi nhịp của từng host, phát hiện host lỗi, cách ly host đó và khởi động lại máy chủ trên host còn chạy. Bảo trì theo kế hoạch thì chuyển máy chủ đang chạy bằng live migration.</p>
+          <div class="phero__cta" data-reveal style="--i:2">
+            <a class="dc-btn dc-btn--primary" href="../index.html#dang-ky">Dùng thử 30 ngày <i data-lucide="arrow-right"></i></a><a class="dc-btn dc-btn--secondary" href="../lien-he.html">Liên hệ tư vấn</a>
+          </div>
+        </div>
+        <div class="phero__visual" data-reveal style="--i:2">
+          <svg class="hah" viewBox="0 0 600 480" role="img" aria-label="Bốn host gửi nhịp về bộ điều phối HA. Host B mất nhịp, các máy chủ của nó được khởi động lại trên host dự phòng D."><path class="hah__wire hah__wire--A" d="M240 120 C 262 140, 262 190, 256 205"/><circle class="hah__pulse hah__pulse--A" r="3.5"><animateMotion dur="1.6s" begin="-0.0s" repeatCount="indefinite" path="M240 120 C 262 140, 262 190, 256 205"/></circle><path class="hah__wire hah__wire--B" d="M360 120 C 338 140, 338 190, 344 205"/><circle class="hah__pulse hah__pulse--B" r="3.5"><animateMotion dur="1.6s" begin="-0.4s" repeatCount="indefinite" path="M360 120 C 338 140, 338 190, 344 205"/></circle><path class="hah__wire hah__wire--C" d="M240 330 C 262 310, 262 260, 256 247"/><circle class="hah__pulse hah__pulse--C" r="3.5"><animateMotion dur="1.6s" begin="-0.8s" repeatCount="indefinite" path="M240 330 C 262 310, 262 260, 256 247"/></circle><path class="hah__wire hah__wire--D" d="M360 330 C 338 310, 338 260, 344 247"/><circle class="hah__pulse hah__pulse--D" r="3.5"><animateMotion dur="1.6s" begin="-1.2s" repeatCount="indefinite" path="M360 330 C 338 310, 338 260, 344 247"/></circle><g class="hah__host hah__host--A"><rect class="hah__box" x="30" y="30" width="210" height="150" rx="16"/><text class="hah__name" x="48" y="58">Host A</text><circle class="hah__led" cx="220" cy="53" r="5"/><g class="hah__vm"><rect x="44" y="78" width="56" height="40" rx="8"/><text x="72" y="103" text-anchor="middle">web-01</text></g><g class="hah__vm"><rect x="108" y="78" width="56" height="40" rx="8"/><text x="136" y="103" text-anchor="middle">db-01</text></g><g class="hah__vm"><rect x="172" y="78" width="56" height="40" rx="8"/><text x="200" y="103" text-anchor="middle">app-01</text></g><polyline class="hah__ecgb" points="48,150 108,150 118,138 128,160 136,146 144,150 222,150"/><polyline class="hah__ecg" pathLength="100" points="48,150 108,150 118,138 128,160 136,146 144,150 222,150"/></g><g class="hah__host hah__host--B"><rect class="hah__box" x="360" y="30" width="210" height="150" rx="16"/><text class="hah__name" x="378" y="58">Host B</text><circle class="hah__led" cx="550" cy="53" r="5"/><rect class="hah__slot" x="374" y="78" width="56" height="40" rx="8"/><rect class="hah__slot" x="438" y="78" width="56" height="40" rx="8"/><rect class="hah__slot" x="502" y="78" width="56" height="40" rx="8"/><polyline class="hah__ecgb" points="378,150 438,150 448,138 458,160 466,146 474,150 552,150"/><polyline class="hah__ecg" pathLength="100" points="378,150 438,150 448,138 458,160 466,146 474,150 552,150"/><line class="hah__flat" x1="378" y1="150" x2="552" y2="150"/></g><g class="hah__host hah__host--C"><rect class="hah__box" x="30" y="290" width="210" height="150" rx="16"/><text class="hah__name" x="48" y="318">Host C</text><circle class="hah__led" cx="220" cy="313" r="5"/><g class="hah__vm"><rect x="44" y="338" width="56" height="40" rx="8"/><text x="72" y="363" text-anchor="middle">web-03</text></g><g class="hah__vm"><rect x="108" y="338" width="56" height="40" rx="8"/><text x="136" y="363" text-anchor="middle">db-02</text></g><g class="hah__vm"><rect x="172" y="338" width="56" height="40" rx="8"/><text x="200" y="363" text-anchor="middle">app-03</text></g><polyline class="hah__ecgb" points="48,410 108,410 118,398 128,420 136,406 144,410 222,410"/><polyline class="hah__ecg" pathLength="100" points="48,410 108,410 118,398 128,420 136,406 144,410 222,410"/></g><g class="hah__host hah__host--D"><rect class="hah__box" x="360" y="290" width="210" height="150" rx="16"/><text class="hah__name" x="378" y="318">Host D · dự phòng</text><circle class="hah__led" cx="550" cy="313" r="5"/><rect class="hah__slot" x="374" y="338" width="56" height="40" rx="8"/><rect class="hah__slot" x="438" y="338" width="56" height="40" rx="8"/><rect class="hah__slot" x="502" y="338" width="56" height="40" rx="8"/><polyline class="hah__ecgb" points="378,410 438,410 448,398 458,420 466,406 474,410 552,410"/><polyline class="hah__ecg" pathLength="100" points="378,410 438,410 448,398 458,420 466,406 474,410 552,410"/></g><g class="hah__ctl"><circle class="hah__ring" cx="300" cy="226" r="64"/><circle class="hah__core" cx="300" cy="226" r="48"/><text class="hah__ctl-t" x="300" y="228" text-anchor="middle">HA</text><text class="hah__ctl-s" x="300" y="248" text-anchor="middle">điều phối</text></g><g class="hah__mv hah__mv--0"><rect x="-28" y="-20" width="56" height="40" rx="8"/><text y="5" text-anchor="middle">web-02</text><animateMotion dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.42;0.58;1" keyPoints="0;0;1;1" path="M402 98 C 300 180, 300 290, 402 358"/></g><g class="hah__mv hah__mv--1"><rect x="-28" y="-20" width="56" height="40" rx="8"/><text y="5" text-anchor="middle">app-02</text><animateMotion dur="10s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.48;0.64;1" keyPoints="0;0;1;1" path="M466 98 C 340 180, 340 290, 466 358"/></g><g class="hah__st"><rect x="130" y="446" width="340" height="30" rx="15"/><text class="hah__st1" x="300" y="466" text-anchor="middle">Mọi host gửi nhịp đều</text><text class="hah__st2" x="300" y="466" text-anchor="middle">Host B mất nhịp, cách ly host</text><text class="hah__st3" x="300" y="466" text-anchor="middle">Máy chủ chạy lại trên host D</text></g></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="arch" data-reveal>
+          <div class="arch__head">
+            <span class="srv__eyebrow"><i data-lucide="heart-pulse"></i>Dòng thời gian một sự cố</span>
+            <h2>Host B mất nhịp. Dịch vụ vẫn chạy.</h2>
+            <p>Ba máy chủ web nằm trên ba host nhờ chính sách anti-affinity. Host B ngừng gửi nhịp: nền tảng xác nhận host lỗi, cách ly host để không nhận máy chủ mới, rồi khởi động lại web-02 trên host dự phòng D, giữ nguyên tên và IP. Trong lúc đó Load Balancer dồn lưu lượng sang web-01 và web-03, người dùng vẫn vào được dịch vụ.</p>
+          </div>
+          <div data-replay-scope>
+            <div class="arch__stage hat__stage">
+<svg class="hat__svg" viewBox="0 0 1250 530" role="img" aria-label="Dòng thời gian một sự cố: host B mất nhịp, nền tảng xác nhận và cách ly host B, khởi động lại web-02 trên host D dự phòng với nguyên tên và IP. Người dùng vẫn truy cập được nhờ web-01 và web-03 phía sau Load Balancer. Nếu không có HA, web-02 nằm chết cho đến khi có người xử lý thủ công."><g class="hat__ph" style="--t:0.0s"><rect x="223" y="20" width="244" height="40" rx="10"/><text x="345" y="45" text-anchor="middle">Bình thường</text></g><g class="hat__ph" style="--t:2.25s"><rect x="473" y="20" width="124" height="40" rx="10"/><text x="535" y="45" text-anchor="middle">Mất nhịp</text></g><g class="hat__ph" style="--t:3.42s"><rect x="603" y="20" width="184" height="40" rx="10"/><text x="695" y="45" text-anchor="middle">Xác nhận, cách ly</text></g><g class="hat__ph" style="--t:5.13s"><rect x="793" y="20" width="154" height="40" rx="10"/><text x="870" y="45" text-anchor="middle">Khởi động lại</text></g><g class="hat__ph" style="--t:6.57s"><rect x="953" y="20" width="264" height="40" rx="10"/><text x="1085" y="45" text-anchor="middle">Hoạt động lại</text></g><text class="hat__lane" x="20" y="120">Người dùng truy cập</text><text class="hat__lane" x="20" y="186">Host A</text><text class="hat__lane" x="20" y="252">Host B</text><text class="hat__lane" x="20" y="318">Host C</text><text class="hat__lane" x="20" y="384">Host D (dự phòng)</text><text class="hat__lane hat__lane--no" x="20" y="490">Nếu không có HA</text><line class="hat__sep" x1="20" y1="442" x2="1220" y2="442"/><g class="hat__run"><rect x="220" y="70" width="1000" height="450" fill="none"/><rect class="hat__bar hat__bar--ok" x="220" y="100" width="1000" height="32" rx="8"/><text class="hat__bt" x="234" y="121">Dịch vụ vẫn chạy: Load Balancer chuyển người dùng sang web-01, web-03</text><rect class="hat__bar hat__bar--ok" x="220" y="166" width="1000" height="32" rx="8"/><text class="hat__bt" x="234" y="187">web-01</text><rect class="hat__bar hat__bar--ok" x="220" y="232" width="250" height="32" rx="8"/><text class="hat__bt" x="234" y="253">web-02</text><rect class="hat__bar hat__bar--bad" x="470" y="232" width="130" height="32" rx="8"/><text class="hat__bt" x="494" y="253">mất nhịp</text><rect class="hat__bar hat__bar--off" x="600" y="232" width="620" height="32" rx="8"/><text class="hat__bt" x="624" y="253">host B bị cách ly, không nhận máy chủ mới</text><rect class="hat__bar hat__bar--ok" x="220" y="298" width="1000" height="32" rx="8"/><text class="hat__bt" x="234" y="319">web-03</text><rect class="hat__bar hat__bar--boot" x="790" y="364" width="160" height="32" rx="8"/><text class="hat__bt" x="814" y="385">khởi động</text><rect class="hat__bar hat__bar--ok" x="950" y="364" width="270" height="32" rx="8"/><text class="hat__bt" x="974" y="385">web-02 chạy lại, giữ nguyên tên và IP</text><rect class="hat__bar hat__bar--ok" x="220" y="470" width="250" height="32" rx="8"/><text class="hat__bt" x="234" y="491">web-02</text><rect class="hat__bar hat__bar--bad" x="470" y="470" width="750" height="32" rx="8"/><text class="hat__bt" x="484" y="491">web-02 nằm chết, chờ người xử lý thủ công</text><circle class="hat__pkt" r="3.5"><animateMotion dur="3.2s" begin="-0.0s" repeatCount="indefinite" path="M820 116 L1208 116"/></circle><circle class="hat__pkt" r="3.5"><animateMotion dur="3.2s" begin="-0.8s" repeatCount="indefinite" path="M820 116 L1208 116"/></circle><circle class="hat__pkt" r="3.5"><animateMotion dur="3.2s" begin="-1.6s" repeatCount="indefinite" path="M820 116 L1208 116"/></circle><circle class="hat__pkt" r="3.5"><animateMotion dur="3.2s" begin="-2.4s" repeatCount="indefinite" path="M820 116 L1208 116"/></circle><path class="hat__move" d="M612 264 C 700 288, 700 380, 780 380"/><path class="hat__arrow" d="M772 374 L782 380 L772 386"/><text class="hat__movet" x="704" y="318">chuyển web-02</text><path class="hat__gap" d="M470 418 v-8 H950 v8"/></g><text class="hat__gapt" x="710" y="432" text-anchor="middle">web-02 gián đoạn ngắn trong khoảng này</text><g class="hat__ev" style="--t:2.25s"><circle cx="470" cy="248" r="12"/><text x="470" y="252" text-anchor="middle">1</text></g><g class="hat__ev" style="--t:3.42s"><circle cx="600" cy="248" r="12"/><text x="600" y="252" text-anchor="middle">2</text></g><g class="hat__ev" style="--t:5.13s"><circle cx="790" cy="380" r="12"/><text x="790" y="384" text-anchor="middle">3</text></g><g class="hat__ev" style="--t:6.57s"><circle cx="950" cy="380" r="12"/><text x="950" y="384" text-anchor="middle">4</text></g><line class="hat__head" x1="220" y1="70" x2="220" y2="512"/></svg>
+            </div>
+            <ol class="hat__steps"><li class="hat__step" style="--t:2.25s"><b>1</b><span>Host B ngừng gửi nhịp. web-02 trên host B không còn trả lời.</span></li><li class="hat__step" style="--t:3.42s"><b>2</b><span>Nền tảng xác nhận host B lỗi thật, rồi cách ly host B để không đặt thêm máy chủ vào đó.</span></li><li class="hat__step" style="--t:5.13s"><b>3</b><span>web-02 được khởi động lại trên host D dự phòng, giữ nguyên tên và IP.</span></li><li class="hat__step" style="--t:6.57s"><b>4</b><span>web-02 chạy lại và nhận lưu lượng trở lại. Trong suốt sự cố, web-01 và web-03 vẫn phục vụ người dùng.</span></li></ol>
+          </div>
+          <div class="hat__foot"><p class="arch__hint">Vuốt ngang để xem cả sơ đồ</p><button class="replay" type="button" data-replay><i data-lucide="rotate-ccw"></i>Chạy lại</button></div>
+          <ul class="arch__feats">
+            <li><i data-lucide="layers"></i><div><b>1. Đặt</b><span>Nhóm máy chủ anti-affinity: mỗi máy chủ của nhóm nằm trên một host khác nhau.</span></div><a href="#dat-may">Chính sách</a></li>
+            <li><i data-lucide="radar"></i><div><b>2. Phát hiện</b><span>Các host gửi nhịp liên tục cho cụm. Host mất nhịp được ghi nhận là sự cố.</span></div><a href="#phat-hien">Các monitor</a></li>
+            <li><i data-lucide="rotate-cw"></i><div><b>3. Phục hồi</b><span>Cách ly host lỗi, rồi khởi động lại máy chủ trên host khác (evacuate).</span></div><a href="#phuc-hoi">Luồng phục hồi</a></li>
+            <li><i data-lucide="split"></i><div><b>4. Chuyển lưu lượng <span class="dc-tag dc-tag--soon">Sắp ra mắt</span></b><span>Load Balancer bỏ qua máy không qua health check, người dùng đi sang máy còn lại.</span></div><a href="load-balancer.html">Load Balancer</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dat-may">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-head__no">01</span><h2>Đặt máy chủ: nhóm máy chủ (server group).</h2><p>Chính sách của nhóm quyết định các máy chủ nằm chung hay riêng host. Chọn khi tạo nhóm, không đổi được sau đó.</p></div>
+        <div class="feat">
+          <article class="glow-card" style="--glow:var(--royal)" data-reveal><i data-lucide="server"></i><h3>Anti-affinity bắt buộc</h3><p>Mỗi máy chủ trong nhóm nằm trên một host khác nhau. Không còn host phù hợp thì lệnh tạo máy báo lỗi, không đặt chung. Đây là chính sách dùng cho HA.</p></article>
+          <article class="glow-card" style="--glow:var(--sky);--i:1" data-reveal><i data-lucide="scale"></i><h3>Anti-affinity ưu tiên</h3><p>Nền tảng cố tách các máy chủ ra. Không đủ host thì vẫn tạo máy và rải trên càng nhiều host càng tốt.</p></article>
+          <article class="glow-card" style="--glow:var(--yellow);--i:2" data-reveal><i data-lucide="network"></i><h3>Affinity</h3><p>Gom các máy chủ về cùng một host, khi chúng cần trao đổi dữ liệu với độ trễ thấp. Có bản bắt buộc và bản ưu tiên. Không dùng cho HA.</p></article>
+          <article class="glow-card" style="--glow:var(--amber)" data-reveal><i data-lucide="list-checks"></i><h3>Giới hạn số máy trên mỗi host</h3><p>Đi kèm anti-affinity: cho phép tối đa N máy chủ của nhóm trên một host, ví dụ 2. Hữu ích khi nhóm lớn hơn số host.</p></article>
+          <article class="glow-card" style="--glow:var(--purple);--i:1" data-reveal><i data-lucide="lock"></i><h3>Chỉ gán lúc tạo máy</h3><p>Máy chủ vào nhóm ngay khi tạo. Máy đã chạy không thêm vào nhóm được, cũng không chuyển sang nhóm khác.</p></article>
+          <article class="glow-card" style="--glow:var(--royal);--i:2" data-reveal><i data-lucide="map"></i><h3>Phạm vi một vùng</h3><p>Nhóm máy chủ chống lỗi ở mức host trong cùng một vùng. Không thay cho việc chạy dịch vụ ở nhiều vùng.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="phat-hien">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-head__no">02</span><h2>Phát hiện sự cố.</h2><p>Bộ theo dõi chạy liên tục trên các host và báo sự cố về bộ điều phối HA.</p></div>
+        <div class="feat">
+          <article class="glow-card" style="--glow:var(--royal)" data-reveal><i data-lucide="heart-pulse"></i><h3>Nhịp của host</h3><p>Các host trong cụm gửi nhịp (heartbeat) cho nhau. Một host mất liên lạc với cụm được ghi nhận là host lỗi.</p></article>
+          <article class="glow-card" style="--glow:var(--sky);--i:1" data-reveal><i data-lucide="power"></i><h3>Trạng thái máy chủ ảo</h3><p>Hypervisor báo khi máy chủ ảo dừng hoặc tắt ngoài ý muốn. Sự cố được ghi nhận ở mức máy chủ.</p></article>
+          <article class="glow-card" style="--glow:var(--purple);--i:1" data-reveal><i data-lucide="bell"></i><h3>Mỗi sự cố có trạng thái</h3><p>Sự cố đi qua các trạng thái mới, đang xử lý, hoàn tất, lỗi hoặc bỏ qua. Đội ngũ DCNET theo dõi từng sự cố theo trạng thái này.</p></article>
+          <article class="glow-card" style="--glow:var(--royal);--i:2" data-reveal><i data-lucide="ban"></i><h3>Bỏ qua host đang bảo trì</h3><p>Host đặt ở chế độ bảo trì không kích hoạt phục hồi, nên bảo trì có kế hoạch không bị coi là sự cố.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="phuc-hoi">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-head__no">03</span><h2>Phục hồi tự động theo từng loại sự cố.</h2><p>Mỗi loại sự cố có một luồng xử lý riêng. Các host được gom thành nhóm phục hồi; host dự phòng được chọn trong cùng nhóm.</p></div>
+        <div class="feat">
+          <article class="glow-card" style="--glow:var(--royal)" data-reveal><i data-lucide="server-crash"></i><h3>Host lỗi: cách ly rồi evacuate</h3><p>Host lỗi bị cách ly để không nhận máy chủ mới. Các máy chủ trên đó được khởi động lại trên host khác, giữ nguyên tên, mã định danh và IP. Sau đó host lỗi ở chế độ bảo trì cho đến khi đội ngũ kiểm tra xong.</p></article>
+          <article class="glow-card" style="--glow:var(--sky);--i:1" data-reveal><i data-lucide="power"></i><h3>Máy chủ lỗi: tắt và bật lại</h3><p>Máy chủ được tắt rồi bật lại tại chỗ, sau đó nền tảng kiểm tra máy đã chạy trở lại.</p></article>
+          <article class="glow-card" style="--glow:var(--amber)" data-reveal><i data-lucide="route"></i><h3>Bốn cách chọn nơi phục hồi</h3><p>Nền tảng tự chọn host còn trống. Hoặc dùng host dự phòng. Hoặc tự chọn trước, không được thì dùng host dự phòng. Hoặc ngược lại.</p></article>
+          <article class="glow-card" style="--glow:var(--purple);--i:1" data-reveal><i data-lucide="hard-drive"></i><h3>Host dự phòng</h3><p>DCNET giữ trống host này trong nhóm phục hồi, chỉ dùng khi có sự cố. Máy chủ chuyển sang đó, không phải chờ tìm chỗ trống.</p></article>
+          <article class="glow-card" style="--glow:var(--royal);--i:2" data-reveal><i data-lucide="tag"></i><h3>Chọn máy cần bảo vệ</h3><p>Gắn nhãn HA lên máy chủ. Tuỳ cấu hình, nền tảng chỉ phục hồi máy gắn nhãn, hoặc phục hồi tất cả và xử lý máy gắn nhãn trước.</p></article>
+          <article class="glow-card" style="--glow:var(--sky)" data-reveal><i data-lucide="ban"></i><h3>Bỏ qua máy đang lỗi sẵn</h3><p>Có thể cấu hình không phục hồi máy chủ đã ở trạng thái lỗi từ trước, tránh dựng lại thứ vốn đã hỏng.</p></article>
+          <article class="glow-card" style="--glow:var(--yellow);--i:1" data-reveal><i data-lucide="database"></i><h3>Đĩa sau khi phục hồi</h3><p>Máy chủ dùng lưu trữ chia sẻ giữ nguyên dữ liệu trên đĩa. Máy dùng đĩa cục bộ của host lỗi được dựng lại từ image. Cấu hình lưu trữ chốt khi ra mắt.</p></article>
+          <article class="glow-card" style="--glow:var(--amber);--i:2" data-reveal><i data-lucide="timer"></i><h3>Có thời gian chờ</h3><p>Luồng phục hồi chờ giữa các bước (cách ly host, khởi động lại, kiểm tra) để xác nhận từng bước xong. Máy chủ gián đoạn trong khoảng đó.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bao-tri">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-head__no">04</span><h2>Bảo trì có kế hoạch: live migration.</h2><p>Trước khi bảo trì một host, đội ngũ chuyển máy chủ đang chạy sang host khác, không cần tắt máy.</p></div>
+        <div class="feat">
+          <article class="glow-card" style="--glow:var(--royal)" data-reveal><i data-lucide="move-right"></i><h3>Live migration</h3><p>Bộ nhớ của máy chủ được sao chép sang host đích trong khi máy vẫn chạy, chỉ dừng rất ngắn ở bước cuối. Host đích do đội ngũ chọn hoặc nền tảng tự chọn.</p></article>
+          <article class="glow-card" style="--glow:var(--sky);--i:1" data-reveal><i data-lucide="hard-drive"></i><h3>Chuyển cả đĩa cục bộ</h3><p>Máy chủ dùng đĩa cục bộ vẫn chuyển được bằng cách sao chép cả đĩa sang host đích (block migration). Mất thời gian hơn máy dùng lưu trữ chia sẻ.</p></article>
+          <article class="glow-card" style="--glow:var(--yellow);--i:2" data-reveal><i data-lucide="gauge"></i><h3>Máy chủ tải nặng</h3><p>Máy chủ ghi bộ nhớ liên tục có thể không chuyển xong. Nền tảng có thể giảm tốc vCPU tạm thời, hoặc chuyển máy sang trước rồi kéo nốt bộ nhớ. Đội ngũ cân nhắc từng trường hợp.</p></article>
+          <article class="glow-card" style="--glow:var(--amber)" data-reveal><i data-lucide="activity"></i><h3>Theo dõi tiến độ</h3><p>Đội ngũ xem được lượng bộ nhớ còn phải chuyển. Tiến độ đứng yên lâu là dấu hiệu việc chuyển có thể không hoàn tất.</p></article>
+          <article class="glow-card" style="--glow:var(--purple);--i:1" data-reveal><i data-lucide="circle-stop"></i><h3>Huỷ hoặc ép hoàn tất</h3><p>Có thể huỷ việc chuyển giữa chừng hoặc ép hoàn tất. Quá thời gian cho phép, nền tảng tự huỷ hoặc ép hoàn tất tuỳ cấu hình.</p></article>
+          <article class="glow-card" style="--glow:var(--royal);--i:2" data-reveal><i data-lucide="rotate-cw"></i><h3>Evacuate thủ công</h3><p>Ngoài luồng tự động, đội ngũ có thể chuyển một máy chủ hoặc cả host lỗi sang host khác khi cần.</p></article>
+        </div>
+        <p class="t-small vat-note">Tính năng và thời điểm có thể thay đổi. Giá công bố khi ra mắt.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-head__no">05</span><h2>Kết hợp với Load Balancer.</h2><p>Tách máy chủ giữ cho dịch vụ còn chạy. Load Balancer giữ cho người dùng không thấy lỗi.</p></div>
+        <div class="feat feat--2">
+          <article class="glow-card" style="--glow:var(--royal)" data-reveal><i data-lucide="split"></i><h3>Không còn một điểm lỗi đơn lẻ</h3><p>Dùng từ hai máy chủ trên hai máy vật lý trở lên, đặt sau <a href="load-balancer.html">Load Balancer</a>. Máy chủ lỗi bị loại khỏi nhóm, lưu lượng chuyển sang máy còn lại.</p></article>
+          <article class="glow-card" style="--glow:var(--sky);--i:1" data-reveal><i data-lucide="heart-pulse"></i><h3>Kiểm tra sức khoẻ máy chủ</h3><p>Load Balancer kiểm tra định kỳ từng máy chủ theo HTTP, HTTPS, TCP hoặc ping. Bạn đặt chu kỳ kiểm tra, thời gian chờ và số lần lỗi liên tiếp trước khi loại máy chủ ra.</p></article>
+          <article class="glow-card" style="--glow:var(--yellow);--i:2" data-reveal><i data-lucide="refresh-cw"></i><h3>Tự đưa trở lại</h3><p>Khi máy chủ được phục hồi và qua kiểm tra, Load Balancer tự nhận lại và chia lưu lượng cho máy đó.</p></article>
+          <article class="glow-card" style="--glow:var(--amber);--i:3" data-reveal><i data-lucide="archive-restore"></i><h3>Dữ liệu vẫn cần sao lưu</h3><p>Sẵn sàng cao giữ dịch vụ chạy, không thay cho sao lưu. Xem <a href="snapshot.html">Snapshot</a> (đang có) và <a href="cloud-backup.html">Cloud Backup</a>.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div data-reveal>
+          <h2>Dùng khi nào.</h2>
+          <p class="lead">Khi dịch vụ của bạn không được phép phụ thuộc vào một máy vật lý.</p>
+          <ul class="ticks">
+            <li>Website, ứng dụng thương mại điện tử, hệ thống nội bộ chạy suốt ngày.</li>
+            <li>Cơ sở dữ liệu hoặc dịch vụ chính có từ hai máy chủ trở lên.</li>
+            <li>Cần giảm ảnh hưởng khi máy vật lý hỏng hoặc phải bảo trì.</li>
+          </ul>
+        </div>
+        <div class="mock" data-reveal style="--i:1" aria-hidden="true">
+          <div class="mock__bar"><i></i><i></i><i></i><span>kịch bản (minh hoạ)</span></div>
+          <div class="mock__body">
+            <div class="mock__row"><b>Host B mất nhịp</b><span>web-02 evacuate sang host D</span></div>
+            <div class="mock__row mock__row--soon"><span>Load Balancer</span><b>Chuyển lưu lượng sang máy còn lại</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap faq">
+        <h2>Câu hỏi về Sẵn sàng cao</h2>
+        <div>
+          <details><summary>Sẵn sàng cao đã dùng được chưa?</summary><p>Chưa. Sản phẩm sắp ra mắt. Bạn có thể dùng thử Cloud Server ngay; Sẵn sàng cao sẽ có trên cùng portal khi ra mắt.</p></details>
+          <details><summary>Máy chủ có bị gián đoạn khi host lỗi không?</summary><p>Có. Evacuate là khởi động lại máy chủ trên host khác, nên có một khoảng gián đoạn từ lúc host lỗi đến lúc máy chạy lại. Dùng thêm <a href="load-balancer.html">Load Balancer</a> và nhiều máy chủ để người dùng ít cảm nhận được.</p></details>
+          <details><summary>Máy chủ nào được tự phục hồi?</summary><p>Tuỳ cấu hình khi ra mắt: toàn bộ máy chủ trên host lỗi, hoặc chỉ máy chủ gắn nhãn HA. Máy đã ở trạng thái lỗi có thể được bỏ qua.</p></details>
+          <details><summary>Máy chủ treo mà máy vật lý vẫn tốt thì sao?</summary><p>Nền tảng phát hiện khi máy chủ dừng hoặc tắt ngoài ý muốn và bật lại máy. Máy chủ treo nhưng vẫn ở trạng thái chạy, hay một ứng dụng bên trong bị lỗi, hiện chưa được phát hiện tự động. Dùng thêm <a href="load-balancer.html">Load Balancer</a> với kiểm tra sức khoẻ để tách máy đó khỏi vòng.</p></details>
+          <details><summary>IP và tên máy chủ có đổi sau khi phục hồi không?</summary><p>Không. Máy chủ được khởi động lại trên host khác vẫn giữ nguyên tên, mã định danh và địa chỉ IP.</p></details>
+          <details><summary>Có cam kết thời gian phục hồi không?</summary><p>Chưa công bố. Cam kết hiện hành nằm ở <a href="../phap-ly/sla.html">Cam kết SLA</a>.</p></details>
+          <details><summary>Dữ liệu có được sao lưu không?</summary><p>Không. Sẵn sàng cao giữ dịch vụ chạy tiếp, không tạo bản sao dữ liệu. Dùng <a href="snapshot.html">Snapshot</a> để chụp trạng thái máy chủ, và <a href="cloud-backup.html">Cloud Backup</a> để sao lưu định kỳ.</p></details>
+          <details><summary>Giá bao nhiêu?</summary><p>Giá công bố khi ra mắt.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-band" data-reveal>
+          <h2>Bắt đầu với Cloud Server ngay hôm nay.</h2>
+          <p>Dùng thử 30 ngày. Sẵn sàng cao sẽ có trên cùng portal khi ra mắt.</p>
+          <div class="cta-band__btns"><a class="dc-btn dc-btn--primary" href="../index.html#dang-ky">Dùng thử 30 ngày</a><a class="dc-btn dc-btn--secondary" href="../lien-he.html">Liên hệ tư vấn</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="dc-footer">
+    <div class="dc-footer__top">
+      <div class="dc-footer__brand">
+        <img src="../brand/assets/logos/dcnet-cloud-stacked-dark.svg" alt="DCNET Cloud">
+        <p class="dc-footer__slogan">Từ cáp quang đến hạ tầng đám mây.</p>
+        <p class="dc-footer__company">CÔNG TY CỔ PHẦN VIỄN THÔNG DCNET</p>
+        <ul class="dc-footer__contact">
+          <li><i data-lucide="map-pin"></i><span>Trụ sở Hồ Chí Minh: <strong>137 Lê Quang Định, P. Bình Thạnh, TP. HCM</strong></span></li>
+          <li><i data-lucide="phone"></i><span>Hotline: <a href="tel:19000382">1900 0382</a> - <a href="tel:0933505256">0933 505 256</a></span></li>
+          <li><i data-lucide="headset"></i><span>Hỗ trợ kỹ thuật: <strong>24/7, cả ngày lễ và cuối tuần</strong></span></li>
+        </ul>
+      </div>
+      <nav class="dc-footer__col" aria-label="Sản phẩm"><h4>Sản phẩm</h4><ul><li><a href="../san-pham/cloud-server.html">Cloud Server</a></li><li><a href="../san-pham/cloud-s3.html">Cloud S3</a></li><li><a href="../san-pham/load-balancer.html">Load Balancer</a></li><li><a href="../san-pham/auto-scaling.html">Auto Scaling</a></li><li><a href="../san-pham/ha.html">Sẵn sàng cao (HA)</a></li><li><a href="../san-pham/snapshot.html">Snapshot</a></li><li><a href="../san-pham/cloud-backup.html">Cloud Backup</a></li><li><a href="../bang-gia.html">Bảng giá</a></li></ul></nav>
+      <nav class="dc-footer__col" aria-label="Công ty"><h4>Công ty</h4><ul><li><a href="../tai-sao-dcnet.html">Tại sao chọn DCNET</a></li><li><a href="../ve-chung-toi.html">Về chúng tôi</a></li><li><a href="../lo-trinh.html">Lộ trình</a></li><li><a href="../lien-he.html">Liên hệ</a></li></ul></nav>
+      <nav class="dc-footer__col" aria-label="Pháp lý"><h4>Pháp lý</h4><ul><li><a href="../phap-ly/sla.html">Cam kết chất lượng (SLA)</a></li><li><a href="../phap-ly/dieu-khoan.html">Điều khoản sử dụng</a></li><li><a href="../phap-ly/bao-mat.html">Bảo vệ dữ liệu cá nhân</a></li></ul></nav>
+    </div>
+    <p class="dc-footer__bottom"><span>© 2027 DCNET Cloud - Một sản phẩm của <strong class="dc-footer__parent">DCNET TELECOM</strong> - <a href="https://dcnet.vn">dcnet.vn</a></span></p>
+  </footer>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="../site.js?v=36d9cd8f"></script>
+</body>
+</html>

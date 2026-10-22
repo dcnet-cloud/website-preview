@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DCNET Cloud - Cloud S3</title>
+  <meta name="description" content="Lưu trữ đối tượng tương thích API S3: dùng aws-cli, rclone, SDK sẵn có. Dữ liệu lưu tại Việt Nam, đội ngũ hỗ trợ 24/7.">
+  <link rel="icon" href="../brand/assets/favicon/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../brand/assets/favicon/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../brand/assets/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&subset=vietnamese&display=swap">
+  <link rel="stylesheet" href="../brand/tokens.css">
+  <link rel="stylesheet" href="../brand/components/components.css">
+  <link rel="stylesheet" href="../site.css?v=36d9cd8f">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <div class="topbar"><div class="topbar__in"><span><b>Dùng thử DCNET Cloud 30 ngày.</b> Đội ngũ hỗ trợ 24/7.</span><span class="topbar__right"><a href="tel:19000382"><i data-lucide="phone"></i>1900 0382</a></span></div></div>
+  <header class="dc-header site-header">
+    <a class="dc-header__logo" href="../index.html" aria-label="DCNET Cloud, trang chủ">
+      <img class="dc-logo--light" src="../brand/assets/logos/dcnet-cloud-inline-light.svg" alt="DCNET Cloud">
+      <img class="dc-logo--dark" src="../brand/assets/logos/dcnet-cloud-inline-dark.svg" alt="" aria-hidden="true">
+    </a>
+    <nav class="dc-header__nav nav" aria-label="Điều hướng chính"><ul class="nav__list"><li class="nav__item"><button class="nav__trigger" type="button" aria-expanded="false" aria-controls="m-sp" aria-current="page">Sản phẩm<i data-lucide="chevron-down"></i></button><div class="mega" id="m-sp"><div class="mega__rail" role="tablist" aria-label="Sản phẩm"><button class="mega__tab" type="button" role="tab" aria-selected="true" aria-controls="m-sp-0">Tất cả sản phẩm<i data-lucide="chevron-right"></i></button><button class="mega__tab" type="button" role="tab" aria-selected="false" aria-controls="m-sp-1">Máy chủ và lưu trữ<i data-lucide="chevron-right"></i></button><button class="mega__tab" type="button" role="tab" aria-selected="false" aria-controls="m-sp-2">Mạng và mở rộng<i data-lucide="chevron-right"></i></button><button class="mega__tab" type="button" role="tab" aria-selected="false" aria-controls="m-sp-3">Bảo vệ<i data-lucide="chevron-right"></i></button></div><div class="mega__main"><div class="mega__pane is-on" id="m-sp-0" role="tabpanel"><p class="mega__h">Tất cả sản phẩm</p><div class="mega__grid"><a class="mlink" href="../san-pham/cloud-server.html"><i data-lucide="server"></i><span><b>Cloud Server</b><small>Máy chủ ảo ổ SSD NVMe, khởi tạo trong vài phút</small></span></a><a class="mlink" href="../san-pham/cloud-s3.html"><i data-lucide="database"></i><span><b>Cloud S3</b><small>Lưu trữ đối tượng tương thích S3</small></span></a><a class="mlink" href="../san-pham/load-balancer.html"><i data-lucide="split"></i><span><b>Load Balancer</b><small>Chia lưu lượng cho nhiều máy chủ</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/auto-scaling.html"><i data-lucide="chart-no-axes-combined"></i><span><b>Auto Scaling</b><small>Tự tăng giảm máy chủ theo tải</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/ha.html"><i data-lucide="heart-pulse"></i><span><b>Sẵn sàng cao (HA)</b><small>Máy chủ chạy tiếp khi một host lỗi</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/snapshot.html"><i data-lucide="camera"></i><span><b>Snapshot</b><small>Chụp trạng thái máy chủ, quay về khi cần</small></span></a><a class="mlink" href="../san-pham/cloud-backup.html"><i data-lucide="archive-restore"></i><span><b>Cloud Backup</b><small>Sao lưu ổ dữ liệu, khôi phục khi cần</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/bao-mat.html"><i data-lucide="shield-check"></i><span><b>Bảo mật hạ tầng</b><small>Tường lửa, WAF, chống DDoS</small></span></a></div></div><div class="mega__pane" id="m-sp-1" role="tabpanel"><p class="mega__h">Máy chủ và lưu trữ</p><div class="mega__grid"><a class="mlink" href="../san-pham/cloud-server.html"><i data-lucide="server"></i><span><b>Cloud Server</b><small>Máy chủ ảo ổ SSD NVMe, khởi tạo trong vài phút</small></span></a><a class="mlink" href="../san-pham/cloud-s3.html"><i data-lucide="database"></i><span><b>Cloud S3</b><small>Lưu trữ đối tượng tương thích S3</small></span></a></div></div><div class="mega__pane" id="m-sp-2" role="tabpanel"><p class="mega__h">Mạng và mở rộng</p><div class="mega__grid"><a class="mlink" href="../san-pham/load-balancer.html"><i data-lucide="split"></i><span><b>Load Balancer</b><small>Chia lưu lượng cho nhiều máy chủ</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/auto-scaling.html"><i data-lucide="chart-no-axes-combined"></i><span><b>Auto Scaling</b><small>Tự tăng giảm máy chủ theo tải</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/ha.html"><i data-lucide="heart-pulse"></i><span><b>Sẵn sàng cao (HA)</b><small>Máy chủ chạy tiếp khi một host lỗi</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a></div></div><div class="mega__pane" id="m-sp-3" role="tabpanel"><p class="mega__h">Bảo vệ</p><div class="mega__grid"><a class="mlink" href="../san-pham/snapshot.html"><i data-lucide="camera"></i><span><b>Snapshot</b><small>Chụp trạng thái máy chủ, quay về khi cần</small></span></a><a class="mlink" href="../san-pham/cloud-backup.html"><i data-lucide="archive-restore"></i><span><b>Cloud Backup</b><small>Sao lưu ổ dữ liệu, khôi phục khi cần</small><span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mlink" href="../san-pham/bao-mat.html"><i data-lucide="shield-check"></i><span><b>Bảo mật hạ tầng</b><small>Tường lửa, WAF, chống DDoS</small></span></a></div></div><div class="mega__foot"><a class="mega__ghost" href="tel:19000382">Cần tư vấn? Gọi 1900 0382</a><a class="mega__solid" href="../bang-gia.html#tu-cau-hinh">Tự cấu hình máy chủ<i data-lucide="arrow-right"></i></a></div></div></div></li><li class="nav__item"><button class="nav__trigger" type="button" aria-expanded="false" aria-controls="m-gia">Bảng giá<i data-lucide="chevron-down"></i></button><div class="mega" id="m-gia"><div class="mega__rail" role="tablist" aria-label="Bảng giá"><button class="mega__tab" type="button" role="tab" aria-selected="true" aria-controls="m-gia-0">Cloud Server<i data-lucide="chevron-right"></i></button></div><div class="mega__main"><div class="mega__pane is-on" id="m-gia-0" role="tabpanel"><p class="mega__h">Cloud Server</p><div class="mega__grid"><a class="mlink" href="../bang-gia.html#goi"><i data-lucide="package"></i><span><b>Gói thông dụng</b><small>6 gói đa dụng, giá theo tháng</small></span></a><a class="mlink" href="../bang-gia.html#tu-cau-hinh"><i data-lucide="sliders-horizontal"></i><span><b>Tự cấu hình</b><small>Chọn vCPU, RAM, ổ đĩa, xem giá ngay</small></span></a><a class="mlink" href="../tinh-cuoc-theo-gio.html"><i data-lucide="wallet"></i><span><b>Tính cước theo giờ</b><small>Đang phát triển: ví trả trước, trả theo giờ</small></span></a></div></div><div class="mega__foot"><a class="mega__link" href="../bang-gia.html">Xem toàn bộ bảng giá<i data-lucide="arrow-right"></i></a></div></div></div></li><li class="nav__item"><button class="nav__trigger" type="button" aria-expanded="false" aria-controls="m-cty">Về DCNET<i data-lucide="chevron-down"></i></button><div class="mega" id="m-cty"><div class="mega__rail" role="tablist" aria-label="Về DCNET"><button class="mega__tab" type="button" role="tab" aria-selected="true" aria-controls="m-cty-0">Công ty<i data-lucide="chevron-right"></i></button><button class="mega__tab" type="button" role="tab" aria-selected="false" aria-controls="m-cty-1">Pháp lý<i data-lucide="chevron-right"></i></button></div><div class="mega__main"><div class="mega__pane is-on" id="m-cty-0" role="tabpanel"><p class="mega__h">Công ty</p><div class="mega__grid"><a class="mlink" href="../tai-sao-dcnet.html"><i data-lucide="badge-check"></i><span><b>Tại sao chọn DCNET</b><small>Lợi thế của một nhà mạng</small></span></a><a class="mlink" href="../ve-chung-toi.html"><i data-lucide="building-2"></i><span><b>Về chúng tôi</b><small>DCNET Telecom và DCNET Cloud</small></span></a><a class="mlink" href="../lo-trinh.html"><i data-lucide="map"></i><span><b>Lộ trình sản phẩm</b><small>Đang có, sắp ra mắt, 2027</small></span></a><a class="mlink" href="../lien-he.html"><i data-lucide="headset"></i><span><b>Liên hệ</b><small>Gọi, gửi yêu cầu, gặp đội ngũ tư vấn</small></span></a></div></div><div class="mega__pane" id="m-cty-1" role="tabpanel"><p class="mega__h">Pháp lý</p><div class="mega__grid"><a class="mlink" href="../phap-ly/sla.html"><i data-lucide="shield"></i><span><b>Cam kết SLA</b><small>Thời gian hoạt động 99,5%/tháng</small></span></a><a class="mlink" href="../phap-ly/dieu-khoan.html"><i data-lucide="file-text"></i><span><b>Điều khoản sử dụng</b><small>Điều kiện dùng dịch vụ DCNET Cloud</small></span></a><a class="mlink" href="../phap-ly/bao-mat.html"><i data-lucide="lock"></i><span><b>Bảo vệ dữ liệu cá nhân</b><small>Cách DCNET xử lý dữ liệu của bạn</small></span></a></div></div><div class="mega__foot"><a class="mega__link" href="../lien-he.html">Liên hệ với DCNET<i data-lucide="arrow-right"></i></a></div></div></div></li><li class="nav__item"><a class="nav__link" href="../lien-he.html">Liên hệ</a></li></ul></nav>
+    <div class="dc-header__actions">
+      <a class="btn-login" href="https://console.dcnetcloud.com/"><i data-lucide="log-in"></i>Đăng nhập</a>
+      <a class="btn-try" href="../index.html#dang-ky">Dùng thử<span class="hide-sm"> 30 ngày</span><i data-lucide="arrow-right"></i></a>
+      <details class="dc-header__menu">
+        <summary aria-label="Mở menu"><i data-lucide="menu"></i></summary>
+        <div class="dc-header__panel"><details class="mob__group" open><summary>Sản phẩm<i data-lucide="chevron-down"></i></summary><div class="mob__body"><p class="mob__title">Máy chủ và lưu trữ</p><a class="mob__link" href="../san-pham/cloud-server.html"><i data-lucide="server"></i><span>Cloud Server</span></a><a class="mob__link" href="../san-pham/cloud-s3.html"><i data-lucide="database"></i><span>Cloud S3</span></a><p class="mob__title">Mạng và mở rộng</p><a class="mob__link" href="../san-pham/load-balancer.html"><i data-lucide="split"></i><span>Load Balancer<span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mob__link" href="../san-pham/auto-scaling.html"><i data-lucide="chart-no-axes-combined"></i><span>Auto Scaling<span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mob__link" href="../san-pham/ha.html"><i data-lucide="heart-pulse"></i><span>Sẵn sàng cao (HA)<span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><p class="mob__title">Bảo vệ</p><a class="mob__link" href="../san-pham/snapshot.html"><i data-lucide="camera"></i><span>Snapshot</span></a><a class="mob__link" href="../san-pham/cloud-backup.html"><i data-lucide="archive-restore"></i><span>Cloud Backup<span class="dc-tag dc-tag--soon">Sắp ra mắt</span></span></a><a class="mob__link" href="../san-pham/bao-mat.html"><i data-lucide="shield-check"></i><span>Bảo mật hạ tầng</span></a><a class="mob__foot" href="tel:19000382">Cần tư vấn? Gọi 1900 0382</a><a class="mob__foot" href="../bang-gia.html#tu-cau-hinh">Tự cấu hình máy chủ</a></div></details><details class="mob__group"><summary>Bảng giá<i data-lucide="chevron-down"></i></summary><div class="mob__body"><a class="mob__link" href="../bang-gia.html#goi"><i data-lucide="package"></i><span>Gói thông dụng</span></a><a class="mob__link" href="../bang-gia.html#tu-cau-hinh"><i data-lucide="sliders-horizontal"></i><span>Tự cấu hình</span></a><a class="mob__link" href="../tinh-cuoc-theo-gio.html"><i data-lucide="wallet"></i><span>Tính cước theo giờ</span></a><a class="mob__foot" href="../bang-gia.html">Xem toàn bộ bảng giá</a></div></details><details class="mob__group"><summary>Về DCNET<i data-lucide="chevron-down"></i></summary><div class="mob__body"><p class="mob__title">Công ty</p><a class="mob__link" href="../tai-sao-dcnet.html"><i data-lucide="badge-check"></i><span>Tại sao chọn DCNET</span></a><a class="mob__link" href="../ve-chung-toi.html"><i data-lucide="building-2"></i><span>Về chúng tôi</span></a><a class="mob__link" href="../lo-trinh.html"><i data-lucide="map"></i><span>Lộ trình sản phẩm</span></a><a class="mob__link" href="../lien-he.html"><i data-lucide="headset"></i><span>Liên hệ</span></a><p class="mob__title">Pháp lý</p><a class="mob__link" href="../phap-ly/sla.html"><i data-lucide="shield"></i><span>Cam kết SLA</span></a><a class="mob__link" href="../phap-ly/dieu-khoan.html"><i data-lucide="file-text"></i><span>Điều khoản sử dụng</span></a><a class="mob__link" href="../phap-ly/bao-mat.html"><i data-lucide="lock"></i><span>Bảo vệ dữ liệu cá nhân</span></a><a class="mob__foot" href="../lien-he.html">Liên hệ với DCNET</a></div></details><a class="mob__top" href="../lien-he.html">Liên hệ</a><a class="mob__login" href="https://console.dcnetcloud.com/">Đăng nhập</a></div>
+      </details>
+    </div>
+  </header>
+  <main>
+    <section class="hero phero">
+      <div class="wrap phero__grid">
+        <div>
+          <p class="eyebrow-pill"><i data-lucide="database"></i>Cloud S3</p>
+          <h1 data-reveal>Lưu trữ đối tượng, <em>chuẩn S3.</em></h1>
+          <p class="lead" data-reveal style="--i:1">Lưu file, ảnh, video, bản sao lưu và log với API chuẩn S3. Dùng ngay công cụ bạn quen, dữ liệu lưu trong nước.</p>
+          <div class="phero__cta" data-reveal style="--i:2">
+            <a class="dc-btn dc-btn--primary" href="../lien-he.html">Liên hệ tư vấn <i data-lucide="arrow-right"></i></a>
+            <a class="dc-btn dc-btn--secondary" href="#tinh-nang">Xem tính năng</a>
+          </div>
+          <ul class="phero__facts" data-reveal style="--i:3">
+            <li><b>S3 API</b><span>dùng aws-cli, rclone, SDK sẵn có</span></li>
+            <li><b>Việt Nam</b><span>dữ liệu lưu trong nước</span></li>
+            <li><b>24/7</b><span>đội ngũ hỗ trợ</span></li>
+          </ul>
+        </div>
+        <div class="phero__visual" data-reveal style="--i:2">
+          <svg class="s3h" viewBox="0 0 600 480" role="img" aria-label="Ứng dụng trên Cloud Server và máy của bạn tải file lên bucket riêng tư. Bucket tạo link chia sẻ có thời hạn, khách hàng tải file qua link. Link hết hạn thì file vẫn riêng tư."><g class="s3h__src"><rect x="20" y="40" width="170" height="64" rx="14"/><text class="s3h__t" x="38" y="68">app-01</text><text class="s3h__s" x="38" y="88">Cloud Server</text></g><g class="s3h__src"><rect x="20" y="150" width="170" height="64" rx="14"/><text class="s3h__t" x="38" y="178">Máy của bạn</text><text class="s3h__s" x="38" y="198">aws-cli, rclone</text></g><g class="s3h__src s3h__cus"><rect x="20" y="300" width="170" height="64" rx="14"/><text class="s3h__t" x="38" y="328">Khách hàng</text><text class="s3h__s" x="38" y="348">nhận link, tải file</text></g><rect class="s3h__bkt" x="290" y="30" width="290" height="250" rx="18"/><text class="s3h__bt" x="312" y="64">bucket / du-lieu</text><g class="s3h__lock"><rect x="534" y="50" width="18" height="14" rx="3"/><path d="M538 50 v-4 a5 5 0 0 1 10 0 v4"/></g><text class="s3h__s s3h__pv" x="312" y="84">riêng tư</text><path class="s3h__wire" d="M190 72 C 240 72, 250 140, 290 140"/><path class="s3h__wire" d="M190 182 C 240 182, 250 160, 290 160"/><g class="s3h__row s3h__row--0"><rect x="306" y="104" width="258" height="32" rx="8"/><text class="s3h__fn" x="320" y="125">banner-tet.jpg</text><text class="s3h__fs" x="550" y="125" text-anchor="end">2,4 MB</text></g><g class="s3h__tok s3h__fly--0"><rect x="-8" y="-10" width="16" height="20" rx="3"/><animateMotion dur="14s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.04;0.1;1" keyPoints="0;0;1;1" path="M190 72 C 240 72, 250 140, 290 140"/></g><g class="s3h__row s3h__row--1"><rect x="306" y="146" width="258" height="32" rx="8"/><text class="s3h__fn" x="320" y="167">video/gioi-thieu.mp4</text><text class="s3h__fs" x="550" y="167" text-anchor="end">186 MB</text></g><g class="s3h__tok s3h__fly--1"><rect x="-8" y="-10" width="16" height="20" rx="3"/><animateMotion dur="14s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.12;0.18;1" keyPoints="0;0;1;1" path="M190 182 C 240 182, 250 160, 290 160"/></g><g class="s3h__row s3h__row--2"><rect x="306" y="188" width="258" height="32" rx="8"/><text class="s3h__fn" x="320" y="209">backup/db-ngay-14.sql.gz</text><text class="s3h__fs" x="550" y="209" text-anchor="end">1,2 GB</text></g><g class="s3h__tok s3h__fly--2"><rect x="-8" y="-10" width="16" height="20" rx="3"/><animateMotion dur="14s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.2;0.26;1" keyPoints="0;0;1;1" path="M190 72 C 240 72, 250 140, 290 140"/></g><g class="s3h__row s3h__row--3"><rect x="306" y="230" width="258" height="32" rx="8"/><text class="s3h__fn" x="320" y="251">logs/2026-10.tar.gz</text><text class="s3h__fs" x="550" y="251" text-anchor="end">48 MB</text></g><g class="s3h__tok s3h__fly--3"><rect x="-8" y="-10" width="16" height="20" rx="3"/><animateMotion dur="14s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.28;0.34;1" keyPoints="0;0;1;1" path="M190 72 C 240 72, 250 140, 290 140"/></g><g class="s3h__link"><rect x="310" y="300" width="250" height="44" rx="22"/><circle class="s3h__tmb" cx="336" cy="322" r="11"/><circle class="s3h__tm" cx="336" cy="322" r="11" pathLength="100" transform="rotate(-90 336 322)"/><text class="s3h__lt s3h__lt1" x="356" y="327">link · hết hạn sau 24 giờ</text><text class="s3h__lt s3h__lt2" x="356" y="327">link đã hết hạn</text></g><path class="s3h__wire" d="M310 322 C 270 322, 230 326, 190 326"/><g class="s3h__tok s3h__tok--link s3h__send"><circle r="6"/><animateMotion dur="14s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.46;0.54;1" keyPoints="0;0;1;1" path="M310 322 C 270 322, 230 326, 190 326"/></g><path class="s3h__wire" d="M300 280 C 280 320, 240 344, 190 344"/><g class="s3h__tok s3h__get--0"><rect x="-8" y="-10" width="16" height="20" rx="3"/><animateMotion dur="14s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.56;0.64;1" keyPoints="0;0;1;1" path="M300 280 C 280 320, 240 344, 190 344"/></g><g class="s3h__tok s3h__get--1"><rect x="-8" y="-10" width="16" height="20" rx="3"/><animateMotion dur="14s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.6;0.68;1" keyPoints="0;0;1;1" path="M300 280 C 280 320, 240 344, 190 344"/></g><g class="s3h__st"><rect x="90" y="410" width="420" height="30" rx="15"/><text class="s3h__st1" x="300" y="430" text-anchor="middle">Ứng dụng và máy của bạn tải file lên bucket</text><text class="s3h__st2" x="300" y="430" text-anchor="middle">Tạo link có thời hạn, khách tải file</text><text class="s3h__st3" x="300" y="430" text-anchor="middle">Link hết hạn, bucket vẫn riêng tư</text></g></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="arch" data-reveal>
+          <div class="arch__head">
+            <span class="srv__eyebrow"><i data-lucide="workflow"></i>Đi cùng Cloud Server</span>
+            <h2>Máy chủ chạy ứng dụng, Cloud S3 giữ file.</h2>
+            <p>Ứng dụng trên Cloud Server đọc ghi bucket qua API S3. Ảnh công khai được người dùng tải thẳng từ bucket, máy chủ không phải gánh. Bản sao lưu nằm trong bucket riêng tư. Tài liệu cần gửi cho khách đi qua link có thời hạn. Cả hai dịch vụ do DCNET vận hành, một đầu mối hỗ trợ.</p>
+          </div>
+          <div class="arch__stage">
+            <svg class="arch__svg s3f" viewBox="0 0 1200 470" role="img" aria-label="Ba luồng giữa Cloud Server và Cloud S3: (1) người dùng tải ảnh lên ứng dụng, ứng dụng lưu vào bucket ảnh công khai, người dùng xem ảnh thẳng từ bucket; (2) cơ sở dữ liệu đẩy bản sao lưu vào bucket riêng tư mỗi đêm; (3) ứng dụng gửi link có thời hạn, khách hàng tải tài liệu thẳng từ bucket."><path class="arch__wire s3f__w s3f__w--u_app" d="M240 116 H436"/><path class="arch__wire s3f__w s3f__w--app_img" d="M624 116 C 720 116, 740 120, 840 120"/><path class="arch__wire s3f__w s3f__w--img_u" d="M840 100 C 700 6, 380 6, 240 106"/><path class="arch__wire s3f__w s3f__w--db_bk" d="M624 162 C 730 162, 740 235, 840 235"/><path class="arch__wire s3f__w s3f__w--app_c" d="M480 190 C 480 300, 330 372, 240 378"/><path class="arch__wire s3f__w s3f__w--doc_c" d="M840 350 C 680 350, 520 410, 240 392"/><circle class="s3f__pk " r="4.5"><animateMotion dur="2.2s" begin="0s" repeatCount="indefinite" path="M240 116 H436"/></circle><circle class="s3f__pk " r="4.5"><animateMotion dur="2.2s" begin="-1.1s" repeatCount="indefinite" path="M624 116 C 720 116, 740 120, 840 120"/></circle><circle class="s3f__pk s3f__pk--get" r="4.5"><animateMotion dur="3s" begin="-0.5s" repeatCount="indefinite" path="M840 100 C 700 6, 380 6, 240 106"/></circle><circle class="s3f__pk s3f__pk--bk" r="4.5"><animateMotion dur="2.6s" begin="0s" repeatCount="indefinite" path="M624 162 C 730 162, 740 235, 840 235"/></circle><circle class="s3f__pk s3f__pk--link" r="4.5"><animateMotion dur="3s" begin="-1s" repeatCount="indefinite" path="M480 190 C 480 300, 330 372, 240 378"/></circle><circle class="s3f__pk s3f__pk--get" r="4.5"><animateMotion dur="3.2s" begin="-2s" repeatCount="indefinite" path="M840 350 C 680 350, 520 410, 240 392"/></circle><g class="arch__node"><rect x="40" y="86" width="200" height="56" rx="14"/><text x="58" y="111">Người dùng</text><text class="arch__sub" x="58" y="130">web, app</text></g><g class="arch__node"><rect x="40" y="356" width="200" height="56" rx="14"/><text x="58" y="381">Khách hàng, đối tác</text><text class="arch__sub" x="58" y="400">nhận link tải file</text></g><g class="arch__host"><rect x="420" y="52" width="220" height="138" rx="16"/></g><text class="arch__sub" x="438" y="78">Cloud Server</text><g class="arch__srv"><rect x="436" y="96" width="188" height="40" rx="10"/><text x="452" y="122">app-01 · ứng dụng</text></g><g class="arch__srv"><rect x="436" y="142" width="188" height="40" rx="10"/><text x="452" y="168">db-01 · cơ sở dữ liệu</text></g><g class="s3f__s3"><rect x="840" y="40" width="330" height="400" rx="20"/></g><text class="s3f__s3t" x="862" y="74">Cloud S3</text><g class="s3f__b"><rect x="862" y="90" width="286" height="62" rx="12"/><text x="880" y="117">anh-san-pham</text><text class="arch__sub" x="880" y="137">ảnh công khai</text></g><g class="s3f__b s3f__b--pv"><rect x="862" y="204" width="286" height="62" rx="12"/><text x="880" y="231">backup</text><text class="arch__sub" x="880" y="251">riêng tư</text></g><g class="s3f__b s3f__b--pv"><rect x="862" y="330" width="286" height="62" rx="12"/><text x="880" y="357">tai-lieu</text><text class="arch__sub" x="880" y="377">riêng tư, link có thời hạn</text></g><g class="s3f__no"><circle cx="330" cy="116" r="13"/><text x="330" y="121" text-anchor="middle">1</text></g><text class="arch__sub" x="312" y="96">tải ảnh lên</text><g class="s3f__no"><circle cx="742" cy="200" r="13"/><text x="742" y="205" text-anchor="middle">2</text></g><text class="arch__sub" x="664" y="250">sao lưu mỗi đêm</text><g class="s3f__no"><circle cx="360" cy="330" r="13"/><text x="360" y="335" text-anchor="middle">3</text></g><text class="arch__sub" x="380" y="335">gửi link</text><text class="arch__sub" x="540" y="22" text-anchor="middle">xem ảnh thẳng từ bucket, không qua máy chủ</text><text class="arch__sub" x="560" y="425" text-anchor="middle">tải thẳng từ bucket khi link còn hạn</text></svg>
+          </div>
+          <p class="arch__hint">Vuốt ngang để xem cả sơ đồ</p>
+          <ul class="arch__feats">
+            <li><i data-lucide="image"></i><div><b>1. Ảnh, video</b><span>Ứng dụng lưu file vào bucket công khai, người dùng tải thẳng từ bucket.</span></div></li>
+            <li><i data-lucide="hard-drive-upload"></i><div><b>2. Sao lưu</b><span>Đẩy bản sao lưu cơ sở dữ liệu vào bucket riêng tư theo lịch, bằng rclone hoặc aws-cli.</span></div></li>
+            <li><i data-lucide="link"></i><div><b>3. Chia sẻ file</b><span>Gửi link tự hết hạn, không mở công khai cả bucket.</span></div></li>
+            <li><i data-lucide="headset"></i><div><b>4. Một đầu mối</b><span>Đội ngũ DCNET hỗ trợ cấu hình công cụ sao lưu, đồng bộ.</span></div><a href="cloud-server.html">Xem Cloud Server</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tinh-nang">
+      <div class="wrap">
+        <div class="sec-head"><span class="sec-head__no">01</span><h2>Dùng như S3, không phải học lại.</h2></div>
+        <div class="feat">
+          <article class="glow-card" style="--glow:var(--royal)" data-reveal><i data-lucide="plug"></i><h3>Tương thích API S3</h3><p>Ứng dụng đang dùng S3 chỉ cần đổi endpoint và khoá truy cập.</p></article>
+          <article class="glow-card" style="--glow:var(--sky);--i:1" data-reveal><i data-lucide="terminal-square"></i><h3>Công cụ quen thuộc</h3><p>aws-cli, rclone, s3cmd và các thư viện S3 cho Python, Node.js, Java, Go, PHP.</p></article>
+          <article class="glow-card" style="--glow:var(--yellow);--i:2" data-reveal><i data-lucide="folder-tree"></i><h3>Bucket, object và phân quyền</h3><p>Đặt từng object công khai hoặc riêng tư, phân quyền cả bucket bằng bucket policy.</p></article>
+          <article class="glow-card" style="--glow:var(--amber)" data-reveal><i data-lucide="link"></i><h3>Link chia sẻ có thời hạn</h3><p>Tạo đường dẫn tải file tự hết hạn, không cần mở công khai cả bucket.</p></article>
+          <article class="glow-card" style="--glow:var(--purple);--i:1" data-reveal><i data-lucide="expand"></i><h3>Dung lượng theo nhu cầu</h3><p>Không cần chọn trước kích thước ổ. Lưu thêm khi dữ liệu tăng.</p></article>
+          <article class="glow-card" style="--glow:var(--royal);--i:2" data-reveal><i data-lucide="map-pin"></i><h3>Dữ liệu lưu trong nước</h3><p>Giúp doanh nghiệp đáp ứng Luật Bảo vệ dữ liệu cá nhân và Luật An ninh mạng.</p></article>
+          <article class="glow-card" style="--glow:var(--sky)" data-reveal><i data-lucide="history"></i><h3>Lưu nhiều phiên bản</h3><p>Bật versioning để giữ các bản cũ của file, lấy lại khi lỡ ghi đè hoặc xoá nhầm.</p></article>
+          <article class="glow-card" style="--glow:var(--yellow);--i:1" data-reveal><i data-lucide="lock-keyhole"></i><h3>Khoá chống xoá</h3><p>Object Lock giữ file không thể xoá, sửa hay ghi đè trong thời gian bạn đặt. Bản sao lưu an toàn hơn trước mã độc tống tiền.</p></article>
+          <article class="glow-card" style="--glow:var(--amber);--i:2" data-reveal><i data-lucide="calendar-clock"></i><h3>Vòng đời dữ liệu</h3><p>Đặt quy tắc tự xoá file cũ sau số ngày định trước, ví dụ log quá 60 ngày.</p></article>
+          <article class="glow-card" style="--glow:var(--purple)" data-reveal><i data-lucide="shield-check"></i><h3>Mã hoá</h3><p>Truy cập qua HTTPS. Mã hoá dữ liệu khi lưu, dùng khoá của nền tảng hoặc khoá do bạn cung cấp.</p></article>
+          <article class="glow-card" style="--glow:var(--royal);--i:1" data-reveal><i data-lucide="globe"></i><h3>Web tĩnh và CORS</h3><p>Chạy website tĩnh từ bucket. Cấu hình CORS để trình duyệt tải file thẳng từ bucket.</p></article>
+          <article class="glow-card" style="--glow:var(--sky);--i:2" data-reveal><i data-lucide="hard-drive"></i><h3>Gắn như ổ đĩa, quản lý bằng mã</h3><p>Gắn bucket vào máy chủ Linux như một thư mục. Tạo bucket, đặt quy tắc bằng Terraform.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="tint">
+          <div class="sec-head"><span class="sec-head__no">02</span><h2>Dùng Cloud S3 cho việc gì.</h2></div>
+          <div class="feat feat--4">
+            <article class="glow-card" style="--glow:var(--sky)" data-reveal><i data-lucide="image"></i><h3>Ảnh, video cho web và app</h3><p>Tách file tĩnh khỏi máy chủ, máy chủ nhẹ hơn.</p></article>
+            <article class="glow-card" style="--glow:var(--yellow);--i:1" data-reveal><i data-lucide="hard-drive-upload"></i><h3>Lưu bản sao lưu</h3><p>Đẩy file backup cơ sở dữ liệu, mã nguồn từ máy chủ lên bucket theo lịch, khoá chống xoá trong thời gian giữ.</p></article>
+            <article class="glow-card" style="--glow:var(--amber);--i:2" data-reveal><i data-lucide="scroll-text"></i><h3>Log và tài liệu lưu lâu</h3><p>Gom log, hoá đơn, hồ sơ cần giữ nhiều năm.</p></article>
+            <article class="glow-card" style="--glow:var(--purple);--i:3" data-reveal><i data-lucide="share-2"></i><h3>Phân phối file</h3><p>Gửi file lớn cho khách hàng, đối tác qua link có thời hạn.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="section">
+      <div class="wrap">
+        <div class="from" data-reveal style="--i:1">
+          <div>
+            <p class="eyebrow">Giá Cloud S3</p>
+            <div class="from__price from__price--text">Báo giá theo nhu cầu</div>
+            <p class="t-small vat-note">Liên hệ để nhận báo giá. Giá chưa có VAT.</p>
+          </div>
+          <a class="dc-btn dc-btn--primary" href="../lien-he.html">Liên hệ tư vấn</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap faq">
+        <h2>Câu hỏi về Cloud S3</h2>
+        <div>
+          <details><summary>Ứng dụng của tôi đang dùng S3, chuyển sang có khó không?</summary><p>Thường chỉ cần đổi endpoint và cặp khoá truy cập trong cấu hình. Đội ngũ DCNET hỗ trợ kiểm tra khi bạn chuyển.</p></details>
+          <details><summary>Dữ liệu được lưu ở đâu?</summary><p>Tại Việt Nam. Dữ liệu lưu trong nước.</p></details>
+          <details><summary>Bản sao lưu có bị mã độc tống tiền xoá không?</summary><p>Bật khoá chống xoá (Object Lock) cho bucket sao lưu. Ở chế độ tuân thủ (compliance), trong thời gian giữ không ai xoá, sửa hay ghi đè được file, kể cả tài khoản quản trị.</p></details>
+          <details><summary>Lỡ xoá hoặc ghi đè file thì sao?</summary><p>Nếu bucket bật lưu nhiều phiên bản, bạn lấy lại được bản trước đó. Bản cũ vẫn tính vào dung lượng lưu trữ.</p></details>
+          <details><summary>Giá tính thế nào?</summary><p>Liên hệ đội ngũ DCNET để nhận báo giá theo nhu cầu lưu trữ của bạn.</p></details>
+          <details><summary>Tôi dùng công cụ nào để quản lý file?</summary><p>Bất kỳ công cụ hỗ trợ S3: aws-cli, rclone, s3cmd, hoặc các ứng dụng quản lý file có hỗ trợ S3.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-band" data-reveal>
+          <h2>Cần chỗ lưu dữ liệu cho hệ thống của bạn?</h2>
+          <p>Kể nhu cầu lưu trữ của bạn, đội ngũ DCNET tư vấn cấu hình và gửi báo giá.</p>
+          <div class="cta-band__btns"><a class="dc-btn dc-btn--primary" href="../lien-he.html">Liên hệ tư vấn</a><a class="dc-btn dc-btn--secondary" href="cloud-server.html">Xem Cloud Server</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="dc-footer">
+    <div class="dc-footer__top">
+      <div class="dc-footer__brand">
+        <img src="../brand/assets/logos/dcnet-cloud-stacked-dark.svg" alt="DCNET Cloud">
+        <p class="dc-footer__slogan">Từ cáp quang đến hạ tầng đám mây.</p>
+        <p class="dc-footer__company">CÔNG TY CỔ PHẦN VIỄN THÔNG DCNET</p>
+        <ul class="dc-footer__contact">
+          <li><i data-lucide="map-pin"></i><span>Trụ sở Hồ Chí Minh: <strong>137 Lê Quang Định, P. Bình Thạnh, TP. HCM</strong></span></li>
+          <li><i data-lucide="phone"></i><span>Hotline: <a href="tel:19000382">1900 0382</a> - <a href="tel:0933505256">0933 505 256</a></span></li>
+          <li><i data-lucide="headset"></i><span>Hỗ trợ kỹ thuật: <strong>24/7, cả ngày lễ và cuối tuần</strong></span></li>
+        </ul>
+      </div>
+      <nav class="dc-footer__col" aria-label="Sản phẩm"><h4>Sản phẩm</h4><ul><li><a href="../san-pham/cloud-server.html">Cloud Server</a></li><li><a href="../san-pham/cloud-s3.html">Cloud S3</a></li><li><a href="../san-pham/load-balancer.html">Load Balancer</a></li><li><a href="../san-pham/auto-scaling.html">Auto Scaling</a></li><li><a href="../san-pham/ha.html">Sẵn sàng cao (HA)</a></li><li><a href="../san-pham/snapshot.html">Snapshot</a></li><li><a href="../san-pham/cloud-backup.html">Cloud Backup</a></li><li><a href="../bang-gia.html">Bảng giá</a></li></ul></nav>
+      <nav class="dc-footer__col" aria-label="Công ty"><h4>Công ty</h4><ul><li><a href="../tai-sao-dcnet.html">Tại sao chọn DCNET</a></li><li><a href="../ve-chung-toi.html">Về chúng tôi</a></li><li><a href="../lo-trinh.html">Lộ trình</a></li><li><a href="../lien-he.html">Liên hệ</a></li></ul></nav>
+      <nav class="dc-footer__col" aria-label="Pháp lý"><h4>Pháp lý</h4><ul><li><a href="../phap-ly/sla.html">Cam kết chất lượng (SLA)</a></li><li><a href="../phap-ly/dieu-khoan.html">Điều khoản sử dụng</a></li><li><a href="../phap-ly/bao-mat.html">Bảo vệ dữ liệu cá nhân</a></li></ul></nav>
+    </div>
+    <p class="dc-footer__bottom"><span>© 2027 DCNET Cloud - Một sản phẩm của <strong class="dc-footer__parent">DCNET TELECOM</strong> - <a href="https://dcnet.vn">dcnet.vn</a></span></p>
+  </footer>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="../site.js?v=36d9cd8f"></script>
+</body>
+</html>
