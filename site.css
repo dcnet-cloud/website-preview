@@ -1844,3 +1844,51 @@ a.tile--hero:hover .srv__mock { transform: perspective(1200px) rotateY(0) rotate
 
 /* Login button has no href until the portal URL is final (PO 2026-10-22) */
 .btn-login:not([href]), .mob__login:not([href]) { cursor: default; }
+
+/* Tại sao DCNET hero (tools/telco_charts.py hero): fiber pulses into the DCNET core, packets flow core -> datacenter -> cloud -> customer */
+.tch { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; overflow: visible; }
+.tch text { font: 600 13px/1 var(--font-sans); fill: #fff; }
+.tch__box { fill: var(--night); stroke: color-mix(in srgb, var(--royal) 60%, transparent); stroke-width: 1.5; filter: drop-shadow(0 18px 30px rgba(15, 17, 38, .22)); }
+.tch__t { font: 600 13px/1 var(--font-mono) !important; }
+.tch__lbl { font: 600 12px/1 var(--font-mono) !important; fill: var(--ink-muted) !important; letter-spacing: .04em; }
+.tch__fib { fill: none; stroke-width: 3; stroke-linecap: round; opacity: .3; }
+.tch__fib--sky { stroke: var(--sky); }
+.tch__fib--yellow { stroke: var(--yellow); }
+.tch__fib--green { stroke: #4CC38A; }
+.tch__beam { fill: none; opacity: 1; stroke-width: 3.5; stroke-dasharray: 12 88; stroke-dashoffset: 100; filter: drop-shadow(0 0 4px currentColor); }
+.tch__ring { fill: none; stroke: var(--sky); stroke-width: 1.5; stroke-dasharray: 3 7; transform-origin: 240px 250px; }
+.tch__core { fill: var(--night); stroke: var(--sky); stroke-width: 2; filter: drop-shadow(0 0 18px rgba(102, 187, 255, .45)); }
+.tch__core-t { font: 800 22px/1 var(--font-display, var(--font-sans)) !important; fill: var(--yellow) !important; }
+.tch__core-s { font-size: 11px !important; fill: #B9BFD6 !important; }
+.tch__wire { fill: none; stroke: color-mix(in srgb, var(--royal) 45%, transparent); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.tch__pkt { fill: var(--sky); }
+.tch__pkt--in { fill: var(--yellow); }
+.tch__rack { fill: color-mix(in srgb, var(--royal) 22%, var(--night)); stroke: rgba(255, 255, 255, .14); }
+.tch__slot { fill: rgba(255, 255, 255, .16); }
+.tch__led { fill: #4CC38A; }
+.tch__chip rect { fill: color-mix(in srgb, var(--royal) 40%, var(--night)); stroke: var(--sky); }
+.tch__chip text { font-size: 12px; }
+.tch__mt { font: 500 11px/1 var(--font-mono) !important; fill: #B9BFD6 !important; }
+.tch__track { fill: rgba(255, 255, 255, .12); }
+.tch__fill { fill: var(--yellow); transform-box: fill-box; transform-origin: left; transform: scaleX(.7); }
+@media (prefers-reduced-motion: no-preference) {
+  .tch__beam { animation: tch-beam 2.2s linear infinite; animation-delay: var(--d, 0s); }
+  .tch__ring { animation: hah-spin 18s linear infinite; }
+  .tch__led { animation: tch-led 2s steps(2, jump-none) infinite; animation-delay: var(--d, 0s); }
+  .tch__fill { animation: tch-bw 6s ease-in-out infinite alternate; }
+}
+@media (prefers-reduced-motion: reduce) { .tch__pkt, .tch__beam { display: none; } }
+@keyframes tch-beam { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@keyframes tch-led { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+@keyframes tch-bw { 0% { transform: scaleX(.55); } 40% { transform: scaleX(.85); } 100% { transform: scaleX(.95); } }
+
+/* Strip under the Tại sao DCNET hero: parent company + dcnet.vn */
+.parent-band { background: var(--night); color: #fff; padding: var(--space-8) 0; position: relative; overflow: hidden; }
+.parent-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 140% at 85% 50%, color-mix(in srgb, var(--royal) 55%, transparent), transparent 70%); pointer-events: none; }
+.parent-band__in { position: relative; display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+.parent-band__txt { margin: 0; max-width: 56ch; font-size: 17px; line-height: 1.6; color: #D5D9EA; }
+.parent-band__txt b { color: #fff; }
+.parent-band__link { display: inline-flex; align-items: center; gap: 12px; font: 800 clamp(32px, 5vw, 52px)/1 var(--font-display, var(--font-sans)); letter-spacing: -0.02em; color: var(--yellow); text-decoration: none; }
+.parent-band__link svg { width: .7em; height: .7em; }
+.parent-band__link svg:last-child { width: .5em; height: .5em; transition: transform .2s; }
+.parent-band__link:hover svg:last-child { transform: translate(3px, -3px); }
