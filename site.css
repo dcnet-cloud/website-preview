@@ -1894,3 +1894,41 @@ a.tile--hero:hover .srv__mock { transform: perspective(1200px) rotateY(0) rotate
 .parent-band__link svg { width: .7em; height: .7em; }
 .parent-band__link svg:last-child { width: .5em; height: .5em; transition: transform .2s; }
 .parent-band__link:hover svg:last-child { transform: translate(3px, -3px); }
+
+/* Mega menu without footer links (Về DCNET, PO 2026-10-23) */
+.mega__foot:empty { display: none; }
+
+/* Liên hệ hero (tools/map_charts.py hero): Vietnam map with Hoàng Sa, Trường Sa + flags, DCNET offices, packets along the links */
+.vnm { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; overflow: visible; }
+.vnm text { font: 600 13px/1 var(--font-sans); }
+.vnm__land { fill: color-mix(in srgb, var(--royal) 12%, var(--surface)); stroke: color-mix(in srgb, var(--royal) 55%, transparent); stroke-width: 1.2; stroke-linejoin: round; filter: drop-shadow(0 18px 30px rgba(15, 17, 38, .12)); }
+.vnm__sea { font: 600 14px/1 var(--font-mono) !important; fill: color-mix(in srgb, var(--royal) 55%, transparent); letter-spacing: .2em; }
+.vnm__isl { fill: var(--royal); }
+.vnm__isl-t { font-size: 12px !important; font-weight: 700 !important; fill: #DA251D; }
+.vnm__isl-s { font-size: 11px !important; fill: var(--ink-muted); }
+.vnm__pole { stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; }
+.vnm__cloth { filter: drop-shadow(0 4px 8px rgba(218, 37, 29, .35)); }
+.vnm__link { fill: none; stroke: var(--royal); stroke-width: 1.5; stroke-dasharray: 4 4; opacity: .6; }
+.vnm__pkt { fill: var(--sky); }
+.vnm__dot { fill: var(--royal); stroke: #fff; stroke-width: 2; }
+.vnm__pin--hq .vnm__dot { fill: var(--yellow); stroke: var(--night); }
+.vnm__ring { fill: none; stroke: var(--royal); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; opacity: 0; }
+.vnm__pin--hq .vnm__ring { stroke: var(--yellow); }
+.vnm__lbl { fill: var(--ink); paint-order: stroke; stroke: var(--paper, #F5F6FA); stroke-width: 4px; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .vnm__ring { animation: vnm-ping 2.4s ease-out infinite; }
+  .vnm__pin:nth-of-type(2) .vnm__ring { animation-delay: .6s; }
+  .vnm__pin:nth-of-type(3) .vnm__ring { animation-delay: 1.2s; }
+  .vnm__pin--hq .vnm__ring { animation-delay: 1.8s; }
+  .vnm__cloth { animation: vnm-wave 2.6s ease-in-out infinite alternate; }
+}
+@media (prefers-reduced-motion: reduce) { .vnm__pkt { display: none; } }
+@keyframes vnm-ping { 0% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(2.6); } }
+@keyframes vnm-wave { from { transform: skewY(-4deg) scaleX(.96); } to { transform: skewY(3deg) scaleX(1); } }
+
+/* Liên hệ: office list beside the contact form */
+.cta ul.branches { margin-top: var(--space-6); gap: var(--space-4); }
+.cta .branches li svg { color: var(--action); }
+.branches b { display: block; font-size: 15px; }
+.branches span { display: block; font-size: 14px; color: var(--ink-muted); }
+.branches a { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; }
